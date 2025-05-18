@@ -1,0 +1,123 @@
+@import "tailwindcss";
+@import "tailwindcss/utilities";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-primary: #00ccb1;
+  --color-primary-hover: #00b09b;
+  --color-secondary: #3b82f6;
+  --color-secondary-hover: #2563eb;
+  --card-front-bg: #00ccb1;
+  --card-back-bg-start: #3b82f6;
+  --card-back-bg-end: #8b5cf6;
+  --color-know: #22c55e;
+  --color-know-hover: #16a34a;
+  --color-dont-know: #ef4444;
+  --color-dont-know-hover: #dc2626;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --content-scale: 1; /* Scale content to 90% of original size */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 16px; /* Base font size */
+}
+
+/* Scale down container for all content */
+.container {
+  transform: scale(var(--content-scale));
+  transform-origin: top center;
+  width: calc(100% / var(--content-scale)); /* Compensate for scale to maintain layout */
+  margin: 0 auto;
+}
+
+@layer base {
+  .theme-default {
+    --color-primary: #00ccb1;
+    --color-primary-hover: #00b09b;
+    --color-secondary: #3b82f6;
+    --color-secondary-hover: #2563eb;
+    --card-front-bg: #00ccb1;
+    --card-back-bg-start: #3b82f6;
+    --card-back-bg-end: #8b5cf6;
+  }
+
+  .theme-dark {
+    --color-primary: #1f2937;
+    --color-primary-hover: #111827;
+    --color-secondary: #374151;
+    --color-secondary-hover: #1f2937;
+    --card-front-bg: #1f2937;
+    --card-back-bg-start: #374151;
+    --card-back-bg-end: #111827;
+  }
+
+  .theme-vibrant {
+    --color-primary: #a855f7;
+    --color-primary-hover: #9333ea;
+    --color-secondary: #ec4899;
+    --color-secondary-hover: #db2777;
+    --card-front-bg: #a855f7;
+    --card-back-bg-start: #ec4899;
+    --card-back-bg-end: #a855f7;
+  }
+}
+
+/* Animated background classes */
+.animated-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, 
+    rgba(100, 100, 255, 0.05) 0%, 
+    rgba(0, 0, 0, 0) 70%),
+    linear-gradient(180deg, 
+    rgba(0, 0, 0, 0) 0%, 
+    rgba(70, 130, 255, 0.06) 100%);
+  z-index: -1;
+  transform-origin: center;
+  animation: pulse 20s infinite linear;
+}
+
+@keyframes pulse {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Custom perspective property for 3D cards */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Custom transform style property for 3D cards */
+.preserve-3d {
+  transform-style: preserve-3d;
+}

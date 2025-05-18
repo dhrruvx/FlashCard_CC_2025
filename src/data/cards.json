@@ -1,0 +1,14 @@
+[
+  { "id": 1, "question": "What is the capital of France?", "answer": "Paris" },
+  { "id": 2, "question": "What is 2 + 2?", "answer": "4" },
+  { "id": 3, "question": "Who wrote Hamlet?", "answer": "William Shakespeare" },
+  { "id": 4, "question": "What is the boiling point of water in Celsius?", "answer": "100°C" },
+  { "id": 5, "question": "What planet is known as the Red Planet?", "answer": "Mars" },
+  { "id": 6, "question": "Who painted the Mona Lisa?", "answer": "Leonardo da Vinci" },
+  { "id": 7, "question": "What is the largest mammal?", "answer": "Blue Whale" },
+  { "id": 8, "question": "What is the chemical symbol for gold?", "answer": "Au" },
+  { "id": 9, "question": "Who discovered penicillin?", "answer": "Alexander Fleming" },
+  { "id": 10, "question": "What is the square root of 64?", "answer": "8" },
+  { "id": 11, "question": "What is the fastest land animal?", "answer": "Cheetah" },
+  { "id": 12, "question": "What is the main language spoken in Brazil?", "answer": "Portuguese" }
+] 
