@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Particles } from "@tsparticles/react";
 import Flashcard from '@/components/Flashcard';
 import ProgressBar from '@/components/ProgressBar';
 import Navbar from '@/components/Navbar';
@@ -34,7 +33,7 @@ export default function Home() {
     currentIndex: 0,
   });
   const [toast, setToast] = useState({ show: false, message: '', type: 'info' as const });
-  const { isLoggedIn, login } = useAuth();
+  const { isLoggedIn } = useAuth();
 
   // Initialize or reset cards with shuffling
   const initializeCards = useCallback((forceReset = false) => {
@@ -180,8 +179,8 @@ export default function Home() {
   const handleLoginRequest = () => {
     setToast({
       show: true,
-      message: 'Please login to start studying with flashcards',
-      type: 'info'
+      message: "Please login to start studying with flashcards",
+      type: "info"
     });
   };
 
@@ -198,8 +197,8 @@ export default function Home() {
       // If not logged in, show login request toast
       setToast({
         show: true,
-        message: 'Please log in using the profile icon in the top right',
-        type: 'info'
+        message: "Please log in using the profile icon in the top right",
+        type: "info"
       });
     }
   };
@@ -308,7 +307,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-2">Smart Learning</h3>
-                <p className="text-gray-300">Our system tracks what you know and what you don't, helping you focus on areas that need improvement.</p>
+                <p className="text-gray-300">Our system tracks what you know and what you don&apos;t, helping you focus on areas that need improvement.</p>
               </div>
             </div>
           </motion.div>
@@ -379,7 +378,7 @@ export default function Home() {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.3 }}
             className="flex justify-center"
-          >
+        >
             <Flashcard card={currentCard} onAnswer={handleAnswer} />
           </motion.div>
         </motion.div>

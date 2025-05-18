@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useTheme } from '@/contexts/ThemeContext';
 
 export const BackgroundBeamsWithCollision = ({
@@ -128,7 +128,8 @@ const CollisionMechanism = React.forwardRef<
       repeatDelay?: number;
     };
   }
->(({ parentRef, containerRef, beamOptions = {} }, ref) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+>(({ parentRef, containerRef, beamOptions = {} }, _ref) => {
   const beamRef = useRef<HTMLDivElement>(null);
   const [collision, setCollision] = useState<{
     detected: boolean;
@@ -140,7 +141,7 @@ const CollisionMechanism = React.forwardRef<
   const [beamKey, setBeamKey] = useState(0);
   const [cycleCollisionDetected, setCycleCollisionDetected] = useState(false);
 
-  const checkCollision = () => {
+  const checkCollision = useCallback(() => {
     if (
       beamRef.current &&
       containerRef.current &&
@@ -166,12 +167,12 @@ const CollisionMechanism = React.forwardRef<
         setCycleCollisionDetected(true);
       }
     }
-  };
+  }, [containerRef, parentRef, cycleCollisionDetected]);
 
   useEffect(() => {
     const animationInterval = setInterval(checkCollision, 50);
     return () => clearInterval(animationInterval);
-  }, [cycleCollisionDetected]);
+  }, [cycleCollisionDetected, checkCollision]);
 
   useEffect(() => {
     if (collision.detected && collision.coordinates) {

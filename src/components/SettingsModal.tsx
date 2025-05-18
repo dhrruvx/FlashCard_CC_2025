@@ -185,7 +185,7 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                 {/* Auto-Flip Toggle */}
                 <div className="flex items-center justify-between">
                   <label className="text-sm font-medium text-gray-700">
-                    Auto-flip for "Don't Know"
+                    Auto-flip for &quot;Don&apos;t Know&quot;
                   </label>
                   <div 
                     onClick={() => setLocalAutoFlip(!localAutoFlip)}

@@ -45,7 +45,7 @@ export default function MyFlashcardsPage() {
         loadCards();
         const allCards = getAllCards();
         setUserFlashcards(allCards);
-      } catch (error) {
+      } catch {
         showToast('Error loading flashcards', 'error');
       } finally {
         setIsLoading(false);
@@ -85,7 +85,7 @@ export default function MyFlashcardsPage() {
       setNewCardAnswer('');
       setShowAddForm(false);
       showToast('Flashcard added successfully!', 'success');
-    } catch (error) {
+    } catch {
       showToast('Error adding flashcard', 'error');
     }
   };
@@ -98,7 +98,7 @@ export default function MyFlashcardsPage() {
       // Update the UI state
       setUserFlashcards(prevCards => prevCards.filter(card => card.id !== id));
       showToast('Flashcard deleted', 'info');
-    } catch (error) {
+    } catch {
       showToast('Error deleting flashcard', 'error');
     }
   };
@@ -332,7 +332,7 @@ export default function MyFlashcardsPage() {
             </div>
           ) : (
             <div className={cn("text-center py-10", themeStyles.text, fontSizes.text)}>
-              <p>You don't have any flashcards yet. Start by adding your first card!</p>
+              <p>You don&apos;t have any flashcards yet. Start by adding your first card!</p>
             </div>
           )}
         </div>

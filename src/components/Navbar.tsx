@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import SettingsModal from './SettingsModal';
 import Toast from './Toast';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -19,7 +18,6 @@ export default function Navbar({ onResetProgress }: NavbarProps) {
   const [toast, setToast] = useState({ show: false, message: '', type: 'success' as const });
   const { theme } = useTheme();
   const { isLoggedIn, login, logout, userName, userEmail } = useAuth();
-  const router = useRouter();
 
   const handleLoginToggle = () => {
     if (isLoggedIn) {

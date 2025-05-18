@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import Button from '@/components/Button';
 import Navbar from '@/components/Navbar';
 import { BackgroundBeamsWithCollision } from '@/components/BackgroundBeamsWithCollision';
 import { FlashcardProgress } from '@/types/flashcard';
@@ -118,7 +117,7 @@ export default function Summary() {
               className="mt-6 text-center"
             >
               <p className="text-gray-300 mb-4 text-base">
-                You've completed {cards.length} flashcards!
+                You&apos;ve completed {cards.length} flashcards!
               </p>
               
               {/* Direct button with high z-index to ensure it's clickable */}
